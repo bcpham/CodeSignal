@@ -1,0 +1,30 @@
+def solution(sequence):
+    is_one_removed = False
+    counter = 0
+    for i in range(len(sequence)-1):
+        
+        if is_one_removed == False:
+            
+            if sequence[i] < sequence[i+1]:
+                continue
+            else:
+                is_one_removed = True
+                counter += 1
+                if counter > 1:
+                    return False
+                continue
+                    
+        if i!=1 and sequence[i-1] < sequence[i+1]:
+            is_one_removed = False
+            continue 
+        
+        elif i==1 and sequence[i] < sequence[i+1]:
+            is_one_removed = False
+            continue
+            
+            
+        else:
+            counter += 1
+            return False   
+            
+    return True  
